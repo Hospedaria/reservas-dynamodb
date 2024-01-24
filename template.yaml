@@ -55,24 +55,32 @@ Resources:
           KeySchema: 
             - AttributeName: "data"
               KeyType: "HASH"
+            - AttributeName: "nome"
+              KeyType: "RANGE"
           Projection: 
             ProjectionType: "ALL"
         - IndexName: ix_email
           KeySchema: 
             - AttributeName: "email"
               KeyType: "HASH"
+            - AttributeName: "id"
+              KeyType: "RANGE"
           Projection: 
             ProjectionType: "ALL"
         - IndexName: ix_nome
           KeySchema: 
             - AttributeName: "nome"
               KeyType: "HASH"
+            - AttributeName: "data"
+              KeyType: "RANGE"
           Projection: 
             ProjectionType: "ALL"
         - IndexName: ix_telefone
           KeySchema: 
             - AttributeName: "telefone"
               KeyType: "HASH"
+            - AttributeName: "id"
+              KeyType: "RANGE"
           Projection: 
             ProjectionType: "ALL"
       TableName: !Ref DynamoDbTableName
