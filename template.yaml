@@ -39,6 +39,13 @@ Resources:
       KeySchema: 
         - AttributeName: "id"
           KeyType: "HASH"
+      GlobalSecondaryIndexes:
+        - IndexName: "ix_data"
+          KeySchema:
+            - AttributeName: "data"
+              KeyType: "HASH"
+          Projection:
+            ProjectionType: "ALL"
       ProvisionedThroughput: 
         ReadCapacityUnits: !Ref RCU
         WriteCapacityUnits: !Ref WCU
