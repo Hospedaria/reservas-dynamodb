@@ -1,7 +1,6 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
-Description: Hospedaria - Reservas - DynamoDB reservas
-
+Description: Hospedaria - reservas - DynamoDB reservas
 Parameters:
   DynamoDbTableName:
     Description: Table Name
@@ -33,52 +32,19 @@ Resources:
     Type: AWS::DynamoDB::Table
     Properties: 
       AttributeDefinitions: 
-        - AttributeName: "id"
-          AttributeType: "N"
-        - AttributeName: "data"
-          AttributeType: "S"
-        - AttributeName: "nome"
-          AttributeType: "S"
-        - AttributeName: "email"
-          AttributeType: "S"
-        - AttributeName: "telefone"
-          AttributeType: "S"
+      - AttributeName: "id"
+        AttributeType: "S"
       BillingMode: !Ref BillingMode
       DeletionProtectionEnabled: !Ref DeletionProtectionEnabled
-      ProvisionedThroughput: 
-        ReadCapacityUnits: !Ref RCU
-        WriteCapacityUnits: !Ref WCU
       KeySchema: 
         - AttributeName: "id"
           KeyType: "HASH"
-      GlobalSecondaryIndexes:
-        - IndexName: ix_data
-          KeySchema: 
-            - AttributeName: "data"
-              KeyType: "HASH"
-          Projection: 
-            ProjectionType: "ALL"
-        - IndexName: ix_email
-          KeySchema: 
-            - AttributeName: "email"
-              KeyType: "HASH"
-          Projection: 
-            ProjectionType: "ALL"
-        - IndexName: ix_nome
-          KeySchema: 
-            - AttributeName: "nome"
-              KeyType: "HASH"
-          Projection: 
-            ProjectionType: "ALL"
-        - IndexName: ix_telefone
-          KeySchema: 
-            - AttributeName: "telefone"
-              KeyType: "HASH"
-          Projection: 
-            ProjectionType: "ALL"
+      ProvisionedThroughput: 
+        ReadCapacityUnits: !Ref RCU
+        WriteCapacityUnits: !Ref WCU
       TableName: !Ref DynamoDbTableName
       Tags: 
-        - Key: Ambiente
-          Value: !Ref Environment
-        - Key: Microservico
-          Value: Reservas
+      - Key: Ambiente
+        Value: !Ref Environment
+      - Key: Microservico
+        Value: Reservas
