@@ -44,6 +44,9 @@ Resources:
           KeySchema:
             - AttributeName: "data"
               KeyType: "HASH"
+          ProvisionedThroughput: 
+            ReadCapacityUnits: !Ref RCU
+            WriteCapacityUnits: !Ref WCU
           Projection:
             ProjectionType: "ALL"
       ProvisionedThroughput: 
