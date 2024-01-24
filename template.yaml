@@ -46,8 +46,7 @@ Resources:
       DeletionProtectionEnabled: !Ref DeletionProtectionEnabled
       KeySchema: 
         - AttributeName: "id"
-          KeyType: "HASH"
-        - AttributeName: 
+          KeyType: "HASH" 
       ProvisionedThroughput: 
         ReadCapacityUnits: !Ref RCU
         WriteCapacityUnits: !Ref WCU
