@@ -7,7 +7,7 @@ jobs:
   Deploy-infra:
     uses: PePires58/ReusableWorkflows/.github/workflows/002_cloudformation_deploy_pipeline.yaml@main
     with: 
-      stack-name: "dev-hospedaria-reservas-dynamodbreservas"
+      stack-name: "dev-hospedaria-reservas-dynamodbreserva"
       parameters-file-path: "infra/dev.parameters.json"
     secrets:
       AWS_BUCKET_DEPLOY: ${{ secrets.AWS_BUCKET_DEPLOY }}
