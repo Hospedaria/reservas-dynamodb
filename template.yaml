@@ -36,6 +36,10 @@ Resources:
         AttributeType: "N"
       - AttributeName: "data"
         AttributeType: "S"
+      - AttributeName: "nome"
+        AttributeType: "S"
+      - AttributeName: "email"
+        AttributeType: "S"
       BillingMode: !Ref BillingMode
       DeletionProtectionEnabled: !Ref DeletionProtectionEnabled
       KeySchema: 
@@ -45,6 +49,24 @@ Resources:
         - IndexName: "ix_data"
           KeySchema:
             - AttributeName: "data"
+              KeyType: "HASH"
+          ProvisionedThroughput: 
+            ReadCapacityUnits: !Ref RCU
+            WriteCapacityUnits: !Ref WCU
+          Projection:
+            ProjectionType: "ALL"
+        - IndexName: "ix_nome"
+          KeySchema:
+            - AttributeName: "nome"
+              KeyType: "HASH"
+          ProvisionedThroughput: 
+            ReadCapacityUnits: !Ref RCU
+            WriteCapacityUnits: !Ref WCU
+          Projection:
+            ProjectionType: "ALL"
+        - IndexName: "ix_email"
+          KeySchema:
+            - AttributeName: "email"
               KeyType: "HASH"
           ProvisionedThroughput: 
             ReadCapacityUnits: !Ref RCU
