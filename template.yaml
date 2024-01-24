@@ -27,9 +27,6 @@ Parameters:
     Description: Deletion protection
     Type: String
     Default: "false"
-  IsProvisioned:
-    Type: String
-    Default: "false"
 
 Resources:
   ReservasDynamoDb:
@@ -49,8 +46,8 @@ Resources:
       BillingMode: !Ref BillingMode
       DeletionProtectionEnabled: !Ref DeletionProtectionEnabled
       ProvisionedThroughput: 
-        ReadCapacityUnits: !If [!Ref IsProvisioned, !Ref RCU, !Ref "AWS::NoValue"]
-        WriteCapacityUnits: !If [!Ref IsProvisioned, !Ref WCU, !Ref "AWS::NoValue"]
+        ReadCapacityUnits: !Ref RCU
+        WriteCapacityUnits: !Ref WCU
       KeySchema: 
         - AttributeName: "id"
           KeyType: "HASH"
