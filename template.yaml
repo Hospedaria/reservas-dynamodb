@@ -56,25 +56,25 @@ Resources:
             - AttributeName: "data"
               KeyType: "HASH"
           Projection: 
-            - ProjectionType: "ALL"
+            ProjectionType: "ALL"
         - IndexName: ix_email
           KeySchema: 
             - AttributeName: "email"
               KeyType: "HASH"
           Projection: 
-            - ProjectionType: "ALL"
+            ProjectionType: "ALL"
         - IndexName: ix_nome
           KeySchema: 
             - AttributeName: "nome"
               KeyType: "HASH"
           Projection: 
-            - ProjectionType: "ALL"
+            ProjectionType: "ALL"
         - IndexName: ix_telefone
           KeySchema: 
             - AttributeName: "telefone"
               KeyType: "HASH"
           Projection: 
-            - ProjectionType: "ALL"
+            ProjectionType: "ALL"
       TableName: !Ref DynamoDbTableName
       Tags: 
       - Key: Ambiente
