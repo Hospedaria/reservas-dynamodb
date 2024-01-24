@@ -34,6 +34,8 @@ Resources:
       AttributeDefinitions: 
       - AttributeName: "id"
         AttributeType: "N"
+      - AttributeName: "data"
+        AttributeType: "S"
       BillingMode: !Ref BillingMode
       DeletionProtectionEnabled: !Ref DeletionProtectionEnabled
       KeySchema: 
