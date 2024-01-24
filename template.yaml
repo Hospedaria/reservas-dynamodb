@@ -1,6 +1,7 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
 Description: Hospedaria - Reservas - DynamoDB reservas
+
 Parameters:
   DynamoDbTableName:
     Description: Table Name
@@ -32,21 +33,21 @@ Resources:
     Type: AWS::DynamoDB::Table
     Properties: 
       AttributeDefinitions: 
-      - AttributeName: "id"
-        AttributeType: "N"
-      - AttributeName: "data"
-        AttributeType: "S"
-      - AttributeName: "nome"
-        AttributeType: "S"
-      - AttributeName: "email"
-        AttributeType: "S"
-      - AttributeName: "telefone"
-        AttributeType: "S"
+        - AttributeName: "id"
+          AttributeType: "N"
+        - AttributeName: "data"
+          AttributeType: "S"
+        - AttributeName: "nome"
+          AttributeType: "S"
+        - AttributeName: "email"
+          AttributeType: "S"
+        - AttributeName: "telefone"
+          AttributeType: "S"
       BillingMode: !Ref BillingMode
       DeletionProtectionEnabled: !Ref DeletionProtectionEnabled
       ProvisionedThroughput: 
-        ReadCapacityUnits: !Ref RCU
-        WriteCapacityUnits: !Ref WCU
+        ReadCapacityUnits: !If [IsProvisioned, !Ref RCU, !Ref "AWS::NoValue"]
+        WriteCapacityUnits: !If [IsProvisioned, !Ref WCU, !Ref "AWS::NoValue"]
       KeySchema: 
         - AttributeName: "id"
           KeyType: "HASH"
@@ -77,7 +78,7 @@ Resources:
             ProjectionType: "ALL"
       TableName: !Ref DynamoDbTableName
       Tags: 
-      - Key: Ambiente
-        Value: !Ref Environment
-      - Key: Microservico
-        Value: Reservas
+        - Key: Ambiente
+          Value: !Ref Environment
+        - Key: Microservico
+          Value: Reservas
