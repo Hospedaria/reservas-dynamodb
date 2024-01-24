@@ -44,12 +44,12 @@ Resources:
         AttributeType: "S"
       BillingMode: !Ref BillingMode
       DeletionProtectionEnabled: !Ref DeletionProtectionEnabled
-      KeySchema: 
-        - AttributeName: "id"
-          KeyType: "HASH"
       ProvisionedThroughput: 
         ReadCapacityUnits: !Ref RCU
         WriteCapacityUnits: !Ref WCU
+      KeySchema: 
+        - AttributeName: "id"
+          KeyType: "HASH"
       GlobalSecondaryIndexes:
         - IndexName: ix_data
           KeySchema: 
