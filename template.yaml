@@ -27,6 +27,9 @@ Parameters:
     Description: Deletion protection
     Type: String
     Default: "false"
+  IsProvisioned:
+    Type: String
+    Default: "false"
 
 Resources:
   ReservasDynamoDb:

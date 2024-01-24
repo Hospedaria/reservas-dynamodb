@@ -4,6 +4,7 @@
     "DynamoDbTableName": "tbes_reservas_dev",
     "RCU": "2",
     "WCU": "1",
-    "BillingMode": "PROVISIONED"
+    "BillingMode": "PROVISIONED",
+    "IsProvisioned": "true"
   }
 }
