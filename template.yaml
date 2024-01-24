@@ -33,6 +33,8 @@ Resources:
     Properties: 
       AttributeDefinitions: 
       - AttributeName: "id"
+        AttributeType: "N"
+      - AttributeName: "nome"
         AttributeType: "S"
       BillingMode: !Ref BillingMode
       DeletionProtectionEnabled: !Ref DeletionProtectionEnabled
