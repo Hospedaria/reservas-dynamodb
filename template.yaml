@@ -49,8 +49,8 @@ Resources:
       BillingMode: !Ref BillingMode
       DeletionProtectionEnabled: !Ref DeletionProtectionEnabled
       ProvisionedThroughput: 
-        ReadCapacityUnits: !If [IsProvisioned, !Ref RCU, !Ref "AWS::NoValue"]
-        WriteCapacityUnits: !If [IsProvisioned, !Ref WCU, !Ref "AWS::NoValue"]
+        ReadCapacityUnits: !If [!Ref IsProvisioned, !Ref RCU, !Ref "AWS::NoValue"]
+        WriteCapacityUnits: !If [!Ref IsProvisioned, !Ref WCU, !Ref "AWS::NoValue"]
       KeySchema: 
         - AttributeName: "id"
           KeyType: "HASH"
