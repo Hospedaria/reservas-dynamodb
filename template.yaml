@@ -33,7 +33,7 @@ Resources:
     Properties: 
       AttributeDefinitions: 
       - AttributeName: "id"
-        AttributeType: "N"
+        AttributeType: "S"
       - AttributeName: "data"
         AttributeType: "S"
       - AttributeName: "nome"
