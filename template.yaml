@@ -34,7 +34,7 @@ Resources:
       AttributeDefinitions: 
       - AttributeName: "id"
         AttributeType: "S"
-      - AttributeName: "data"
+      - AttributeName: "checkin"
         AttributeType: "S"
       - AttributeName: "nome"
         AttributeType: "S"
@@ -46,9 +46,9 @@ Resources:
         - AttributeName: "id"
           KeyType: "HASH"
       GlobalSecondaryIndexes:
-        - IndexName: "ix_data"
+        - IndexName: "ix_checkin"
           KeySchema:
-            - AttributeName: "data"
+            - AttributeName: "checkin"
               KeyType: "HASH"
           ProvisionedThroughput: 
             ReadCapacityUnits: !Ref RCU
