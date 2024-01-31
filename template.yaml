@@ -33,8 +33,12 @@ Resources:
     Properties: 
       AttributeDefinitions: 
       - AttributeName: "id"
-        AttributeType: "N"
-      - AttributeName: "data"
+        AttributeType: "S"
+      - AttributeName: "checkin"
+        AttributeType: "S"
+      - AttributeName: "nome"
+        AttributeType: "S"
+      - AttributeName: "email"
         AttributeType: "S"
       BillingMode: !Ref BillingMode
       DeletionProtectionEnabled: !Ref DeletionProtectionEnabled
@@ -42,9 +46,27 @@ Resources:
         - AttributeName: "id"
           KeyType: "HASH"
       GlobalSecondaryIndexes:
-        - IndexName: "ix_data"
+        - IndexName: "ix_checkin"
           KeySchema:
-            - AttributeName: "data"
+            - AttributeName: "checkin"
+              KeyType: "HASH"
+          ProvisionedThroughput: 
+            ReadCapacityUnits: !Ref RCU
+            WriteCapacityUnits: !Ref WCU
+          Projection:
+            ProjectionType: "ALL"
+        - IndexName: "ix_nome"
+          KeySchema:
+            - AttributeName: "nome"
+              KeyType: "HASH"
+          ProvisionedThroughput: 
+            ReadCapacityUnits: !Ref RCU
+            WriteCapacityUnits: !Ref WCU
+          Projection:
+            ProjectionType: "ALL"
+        - IndexName: "ix_email"
+          KeySchema:
+            - AttributeName: "email"
               KeyType: "HASH"
           ProvisionedThroughput: 
             ReadCapacityUnits: !Ref RCU
